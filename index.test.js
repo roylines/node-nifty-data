@@ -1,7 +1,7 @@
-const { test } = require("./index");
+const { get } = require("./index");
 
 describe("nifty-data", () => {
   it("can", async () => {
-    await test();
+    await get();
   });
 });

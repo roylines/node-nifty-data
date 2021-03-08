@@ -1,3 +1,5 @@
+const get = async () => {};
+
 module.exports = {
-  test,
+  get,
 };
