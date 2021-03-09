@@ -16,6 +16,9 @@ npm install @roylines/nifty-data
 ```js
 const nifty = require("@roylines/nifty-data");
 
-const history = await nifty.history();
-console.log("history", history);
+const globalHistory = await nifty.getGlobalHistory({
+  contractAddress: "0xe9be55ffedb6c2a2f3f8eac31c60d7f122f79958",
+});
+
+console.log("global history", globalHistory);
 ```
