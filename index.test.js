@@ -1,4 +1,4 @@
-const { history } = require("./index");
+const { history, profile } = require("./index");
 
 describe("nifty-data", () => {
   describe("history", () => {
@@ -34,6 +34,17 @@ describe("nifty-data", () => {
 
       const ret = await history(q);
       expect(ret.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe("profile", () => {
+    it("can get profile", async () => {
+      const q = {
+        profile: "trevorjonesart",
+      };
+
+      const ret = await profile(q);
+      expect(ret.userProfileAndNifties.nifties.length).toBeGreaterThan(0);
     });
   });
 });
