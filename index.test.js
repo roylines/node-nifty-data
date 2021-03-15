@@ -1,6 +1,26 @@
-const { getGlobalHistory, getEditionHistory, getProfile } = require("./index");
+const {
+  getEditionHistory,
+  getExhibitions,
+  getGlobalHistory,
+  getProfile,
+  getSitewideActivity,
+} = require("./index");
 
 describe("nifty-data", () => {
+  describe("activity", () => {
+    it("can get all (defaults)", async () => {
+      const activity = await getSitewideActivity({});
+      expect(activity.length).toEqual(30);
+    });
+    it("can get all (non defaults)", async () => {
+      const activity = await getSitewideActivity({
+        size: 5,
+        current: 1,
+        timeout: 30000,
+      });
+      expect(activity.length).toEqual(5);
+    });
+  });
   describe("history", () => {
     it("can get global (all)", async () => {
       const q = {
@@ -39,6 +59,13 @@ describe("nifty-data", () => {
 
       const profile = await getProfile(q);
       expect(profile.userProfileAndNifties.nifties.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe("getExhibitions", () => {
+    it("can get", async () => {
+      const exhibitions = await getExhibitions({});
+      expect(exhibitions.length).toBeGreaterThan(0);
     });
   });
 });

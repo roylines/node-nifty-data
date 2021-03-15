@@ -1,7 +1,6 @@
-const history = require("./lib/history");
-const profile = require("./lib/profile");
-
 module.exports = {
-  ...history,
-  ...profile,
+  ...require("./lib/activity"),
+  ...require("./lib/exhibitions"),
+  ...require("./lib/history"),
+  ...require("./lib/profile"),
 };
